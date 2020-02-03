@@ -1,15 +1,22 @@
+<h1>Edit Book</h1>
+
 <form action="/books/edit?book_id={{book._id}}" method="post">
   <label for="">Title:</label>
   <input type="text" name="title" value="{{book.title}}">
-
-  <label for="">Author:</label>
-  <input type="text" name="author" value="{{book.author}}">
-
+  <br><br>
+  <label for="authors-select">Author:</label>
+  <select required name="author" id="authors-select">
+    <option value="{{book.author.0._id}}">{{book.author.0.name}} {{book.author.0.lastName}}</option>
+    {{#each newAvailableAuthors}}
+    <option value="{{this._id}}">{{this.name}} {{this.lastName}}</option>
+    {{/each}}
+  </select>
+  <br><br>
   <label for="">Description:</label>
   <input type="text" name="description" value="{{book.description}}">
-
+  <br><br>
   <label for="">Rate:</label>
   <input type="number" name="rating" value="{{book.rating}}">
-
+  <br><br>
   <button type="submit">EDIT</button>
 </form>

@@ -3,5 +3,8 @@
     <p>
         <a href="book/{{this._id}}">{{this.title}}</a> 
         <a href="/books/edit?book_id={{this._id}}" class="edit-button">EDIT</a>
+        <form action="/book/{{this._id}}/delete" method="post">
+            <button type="submit">Delete</button>
+        </form>
     </p>
 {{/each}}
